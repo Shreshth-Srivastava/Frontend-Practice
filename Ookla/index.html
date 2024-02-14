@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: 0;
+    }
+    body,html{
+        width: 100%;
+        height: 100%;
+    }
+    @keyframes circle{
+        0%,100%{
+            transform: scale(1);
+        }
+        50%{
+            transform: scale(0.95);
+        }
+    }
+    @keyframes wave{
+        0%{
+            opacity: 1;
+            transform: scale(1);
+        }
+        100%{
+            opacity: 0;
+            transform: scale(1.5);
+        }
+    }
+    #main{
+        width: 100%;
+        height: 100%;
+        background-color: #161635;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #cookies{
+        position: absolute;
+        width: 20vw;
+        height: 20vw;
+        padding: 2vw;;
+        border: 2px solid aqua;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+        color: white;
+        background-color: #161635;
+        z-index: 2;
+        transition: .5s;
+        display: auto;
+    }
+    #btn{
+        width: 20%;
+        height: 10%;
+        background-color: transparent;
+        border: 2px solid aqua;
+        color: white;
+        cursor: pointer;
+    }
+    #container{
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #container h2{
+        position: absolute;
+        color: white;
+        font-size: 4vw;
+        font-weight: 100;
+        font-family: sans-serif;
+    }
+    #circle{
+        width: 15vw;
+        height: 15vw;
+        border: 2px solid aqua;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: circle 2s ease-in-out infinite;
+        cursor: pointer;
+    }
+    #circle::before{
+        content: '';
+        position: absolute;
+        width: 15vw;
+        height: 15vw;
+        border: 2px solid aqua;
+        border-radius: 50%;
+        animation: wave 2s infinite;
+    }
+    @media(max-width: 800px){
+        #container h2{
+            font-size: 5vh;
+        }
+        #circle{
+            width: 20vh;
+            height: 20vh;
+        }
+        #circle::before{
+            width: 20vh;
+            height: 20vh;
+        }
+    }
+</style>
+<body>
+    <div id="main">
+        <div id="cookies">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, excepturi. Cupiditate molestias quibusdam, inventore dolore non, excepturi et soluta atque exercitationem, nobis sit reiciendis tenetur iusto eius nostrum quidem? Pariatur.
+            At iure, rerum vitae eos similique tenetur quidem quasi quos totam dolore soluta consequuntur, eaque laboriosam pariatur libero, dolor magnam eligendi enim consequatur. Consequatur impedit optio labore officia ab eligendi?</p>
+        <button id="btn" onclick="A()">Ok</button>
+        </div>
+        <div id="container">
+            <h2>Go</h2>
+            <div id="circle"></div>
+        </div>
+    </div>
+</body>
+<script>
+    var cookie = document.querySelector('#cookies');
+    function A(){
+        cookie.style.opacity = "0";
+        setTimeout(()=>{
+            cookie.style.display = 'none'
+        },1000);
+    }
+</script>
+</html>
